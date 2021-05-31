@@ -23,7 +23,7 @@
             </div>
             <div class="d-flex justify-content-end">
                 <div class="badge badge-light p-2">
-                {{ answer.create_date|datetime }}
+                    {{ answer.create_date|datetime }}
                 </div>
             </div>
         </div>
@@ -39,7 +39,8 @@
         {% endfor %}
         <!-- 오류표시 End -->
         <div class="form-group">
-            <textarea name="content" id="content" rows="10" class="form-control"></textarea>
+            <textarea {% if not g.user %} disabled {% endif %} name="content" id="content" rows="10"
+                class="form-control"></textarea>
         </div>
         <input type="submit" value="답변등록" class="btn btn-primary">
     </form>
